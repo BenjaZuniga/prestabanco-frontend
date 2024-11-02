@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    stages{
+        stage('Build Frontend'){
+            steps{
+                checkout scmGit(branches: [[name: 'refs/heads/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/benjazuniga/prestabanco-frontend']])
+                bat "npm install"
+                bat "npm run build" 
+            }
+        }
+        stage('Deploy'){
+            steps{
+                script{
+                     withDockerRegistry(credentialsId: 'docker-credentials'){
+                        bat "docker build -t benjazuniga/prestabanco-frontend:latest ."
+                        bat "docker push benjazuniga/prestabanco-frontend:latest"
+                      }
+                }
+            }
+        }
+    }
+}
