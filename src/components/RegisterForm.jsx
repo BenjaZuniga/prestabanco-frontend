@@ -62,7 +62,6 @@ export default function RegisterForm() {
         if (personalDocument !== null) {
           const personalDocumentData = new FormData();
           personalDocumentData.append('file', personalDocument); // Archivo PDF
-					incomeDocumentData.append('ownerId', 0)
           personalDocumentData.append('requestId', 0); // ID de la solicitud
           personalDocumentData.append('type', "Documento personal"); // Tipo de documento
           try {
@@ -77,7 +76,6 @@ export default function RegisterForm() {
         if (salaryDocument !== null) {
           const salaryDocumentData = new FormData();
           salaryDocumentData.append('file', salaryDocument); // Archivo PDF
-					incomeDocumentData.append('ownerId', 0)
           salaryDocumentData.append('requestId', 0); // ID de la solicitud
           salaryDocumentData.append('type', "Documento de sueldo"); // Tipo de documento
           try {
