@@ -294,7 +294,7 @@ const EvaluateRequestForm = () => {
 				  <Typography>Monto máximo de financiamiento:</Typography>
         </Grid>
         <Grid size={6} textAlign={"left"}>
-				  <Typography>{Math.round(request?.amount / request?.propertyValue)}%</Typography>
+				  <Typography>{Math.round((request?.amount / request?.propertyValue ) * 100)}%</Typography>
         </Grid>
 				<Grid size={6} textAlign={"right"}>
 				  <Typography>Edad del solicitante:</Typography>
