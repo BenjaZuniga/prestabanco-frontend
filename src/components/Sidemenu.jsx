@@ -37,7 +37,7 @@ export default function Sidemenu({ open, toggleDrawer }) {
 
         <Divider />
 
-				{localStorage.getItem("logged") === 1 ?
+				{localStorage.getItem("logged") === "1" ?
 				<>
         <ListItemButton onClick={() => navigate("/simulateCredit")}>
           <ListItemIcon>
