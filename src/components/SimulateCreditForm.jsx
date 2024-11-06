@@ -106,7 +106,6 @@ export default function SimulateCreditForm() {
           required
           label="Total de meses "
           id="months-input"
-          variant="filled"
           value={months}
           onChange={(e) => setMonths(e.target.value)}
         />

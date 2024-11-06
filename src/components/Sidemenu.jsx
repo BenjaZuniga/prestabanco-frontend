@@ -28,7 +28,7 @@ export default function Sidemenu({ open, toggleDrawer }) {
       onClick={toggleDrawer(false)}
     >
       <List>
-        <ListItemButton onClick={() => navigate("/home")}>
+        <ListItemButton onClick={() => navigate("/")}>
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
@@ -37,6 +37,8 @@ export default function Sidemenu({ open, toggleDrawer }) {
 
         <Divider />
 
+				{localStorage.getItem("logged") === 1 ?
+				<>
         <ListItemButton onClick={() => navigate("/simulateCredit")}>
           <ListItemIcon>
             <AttachMoney />
@@ -64,7 +66,8 @@ export default function Sidemenu({ open, toggleDrawer }) {
           </ListItemIcon>
           <ListItemText primary="Mis solicitudes" />
         </ListItemButton>
-        
+				</>
+				: null}
       </List>
     </Box>
   );

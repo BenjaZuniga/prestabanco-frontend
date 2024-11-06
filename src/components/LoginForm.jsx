@@ -31,7 +31,7 @@ export default function LoginForm() {
 				localStorage.setItem("role", user.role);
 				localStorage.setItem("logged", 1);
 			}
-			navigate("/home")
+			navigate("/")
 		})
 		.catch((error) => {
       console.log("Se ha producido un error.", error)
@@ -55,7 +55,6 @@ export default function LoginForm() {
 		      required
           label="Correo" 
           id="mail-imput"
-          variant="filled"
 		      value={mail}
 					onChange={(e) => setMail(e.target.value)}
         />

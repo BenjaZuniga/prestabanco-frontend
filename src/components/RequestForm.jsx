@@ -123,7 +123,7 @@ export default function RequestForm(){
 			}
 		}
 		window.alert("Solicitud creada exitosamente")
-		navigate(0)
+		navigate("/myRequests")
 	};
 
 
@@ -177,7 +177,7 @@ export default function RequestForm(){
 			}
 		}
 		window.alert("Solicitud creada exitosamente")
-		navigate(0)
+		navigate("/myRequests")
 
 	}
 
@@ -231,7 +231,7 @@ export default function RequestForm(){
 			}
 		}
 		window.alert("Solicitud creada exitosamente")
-		navigate(0)
+		navigate("/myRequests")
 	}
 
 	const uploadRemodDocuments = async () => {
@@ -272,7 +272,7 @@ export default function RequestForm(){
 			}
 		}
 		window.alert("Solicitud creada exitosamente")
-		navigate(0)
+		navigate("/myRequests")
 
 	}
 
