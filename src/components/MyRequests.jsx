@@ -18,6 +18,10 @@ const MyRequestsList = () => {
 
   const navigate = useNavigate();
 
+	const formatNumber = (number) => {
+		return new Intl.NumberFormat('de-DE').format(number);
+	};
+
 	const init = () => {
     requestService
       .getByOwnerId(localStorage.getItem("idUser"))
@@ -105,8 +109,8 @@ const MyRequestsList = () => {
 																			 request.state === "En desembolso" ? "lightblue" :null}}
 						>
 							<TableCell align="center">{request.type}</TableCell>
-							<TableCell align="center">{request.propertyValue}</TableCell>
-							<TableCell align="center">{request.amount}</TableCell>
+							<TableCell align="center">{formatNumber(request.propertyValue)}</TableCell>
+							<TableCell align="center">{formatNumber(request.amount)}</TableCell>
 							<TableCell align="center">{request.interestRate}%</TableCell>
 							<TableCell align="center">{request.months}</TableCell>
 							<TableCell align="center">{request.state}</TableCell>

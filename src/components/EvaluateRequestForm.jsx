@@ -38,7 +38,6 @@ const EvaluateRequestForm = () => {
 	const { requestId } = useParams();
 
 	const init = async () => {
-		console.log()
     requestService
 		  .get(requestId)
 			.then((request) => {
@@ -122,7 +121,6 @@ const EvaluateRequestForm = () => {
 	}
 
 	const checkSeventhRule = () => {
-		console.log(eighthRule, ninethRule, tenthRule, eleventhRule, twelfthRule)
 		if(eighthRule){
 			checks++
 		}
@@ -138,7 +136,6 @@ const EvaluateRequestForm = () => {
 		if(twelfthRule){
 			checks++
 		}
-		console.log(checks)
 		if(checks > 2){
 			seventhRule = true;
 		}
