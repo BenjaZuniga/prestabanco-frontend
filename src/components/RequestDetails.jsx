@@ -134,7 +134,7 @@ const RequestDetails = () => {
 					  <Typography>{request?.interestRate}%</Typography>
 					</Grid>
 					<Grid size={12} >
-					{request?.state === "Pre-aprobado" ? (
+					{request?.state === "Pre-aprobado" || request?.state === "En desembolso" ? (
 						<Grid container spacing={15} rowGap={"20px"} alignItems={"center"}>
 							<Grid size={12} >
 								<h2>Gastos totales</h2>

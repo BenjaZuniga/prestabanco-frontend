@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { styled } from '@mui/material';
+import { styled, Typography } from '@mui/material';
 import { FormControl, InputLabel, Select } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from "react-router-dom";
@@ -409,6 +409,12 @@ export default function RequestForm(){
             value={months}
             onChange={(e) => setMonths(e.target.value)}
           />
+        </FormControl>
+      </div>
+			<br />
+			<div>
+        <FormControl fullWidth>
+          <Typography>Tasa de interés: 5%</Typography>
         </FormControl>
       </div>
       <br />

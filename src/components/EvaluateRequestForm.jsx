@@ -153,10 +153,7 @@ const EvaluateRequestForm = () => {
 		checkFifthRule();
 		checkSeventhRule();
 
-		console.log(firstRule , secondRule , thirdRule , fourthRule ,fifthRule , sixthtRule, seventhRule)
-
 		if(firstRule && secondRule && thirdRule && fourthRule && fifthRule && sixthtRule && seventhRule){
-			console.log(checks)
 			if(checks === 3){
 				newState = "Requiere evaluación adicional" 
 			}
@@ -244,9 +241,21 @@ const EvaluateRequestForm = () => {
 					<Grid size={6} textAlign={"left"}>
 					  <Typography>{formatNumber(Math.round(request?.monthlyFee))}$</Typography>
 					</Grid>
-				<Grid size={12}>
-					<h2>Documentos del cliente:</h2>
-				</Grid>
+					<Grid size={12}>
+						<h2>Datos y documentos del cliente:</h2>
+					</Grid>
+					<Grid size={6} textAlign={"right"}>
+						<Typography>Edad del cliente:</Typography>
+					</Grid>
+					<Grid size={6} textAlign={"left"}>
+					  <Typography>{user?.age}</Typography>
+					</Grid>
+					<Grid size={6} textAlign={"right"}>
+					  <Typography>Ingresos mensuales del cliente:</Typography>
+					</Grid>
+					<Grid size={6} textAlign={"left"}>
+					  <Typography>{formatNumber(Math.round(user?.salary))}$</Typography>
+					</Grid>
 					{documents.map((document, index) => (
             <Grid size={12} key={index}>
               <Button
