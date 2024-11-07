@@ -139,6 +139,6 @@ export default function SimulateCreditForm() {
 			</Grid>
 			</Grid>
 			<br />
-			<Button onClick={(e) => simulateCredit(e)}>Simular Credito</Button>
+			<Button onClick={(e) => simulateCredit(e)}>Simular Credito Chile</Button>
 	</Box>)
 }
