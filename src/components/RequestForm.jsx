@@ -30,6 +30,7 @@ export default function RequestForm(){
 	const [budgetDocument, setBudgetDocument] = useState();
 	const [propertyValueActDocument, setPropertyValueActDocument] = useState()
 	const [validParams, setValidPams] = useState(false);
+	const [validMonths, setValidMonths] = useState(false);
 
 	const navigate = useNavigate()
   
@@ -51,7 +52,6 @@ export default function RequestForm(){
 			switch(type){
 				case "Primera vivienda" :
 				  if(incomeDocument === undefined || propertyValueDocument === undefined || creditHistoryDocument === undefined){
-						console.log("a")
             setState("Pendiente de Documentación");	
 					}else{
 						setState("En evaluación")
@@ -84,6 +84,38 @@ export default function RequestForm(){
 			return;
 		}
 	}
+
+	const checkMonths = (e) => {
+		switch(type){
+			case "Primera vivienda" :
+				if(parseInt(months) > 360){
+					setValidMonths(false);	
+				}else{
+					setValidMonths(true)
+				}
+				break;
+			case "Segunda vivienda" :
+				case "Primera vivienda" :
+				if(parseInt(months) > 240){
+					setValidMonths(false);	
+				}else{
+					setValidMonths(true)
+				}
+				break;
+			case "Propiedades comerciales" :
+				if(parseInt(months) > 300){
+					setValidMonths(false);	
+				}else{
+					setValidMonths(true)
+				}
+			case "Remodelación" :
+				if(parseInt(months) > 180){
+					setValidMonths(false);	
+				}else{
+					setValidMonths(true)
+				}
+	}
+}
 
 	const uploadFirstPropertyDocuments = async () => {
 		if (incomeDocument !== undefined) {
@@ -280,8 +312,9 @@ export default function RequestForm(){
 		e.preventDefault();
 
 		checkParams(e);
+		checkMonths(e);
 
-		if(validParams){
+		if(validParams && validMonths){
 
 		setAmount(parseInt(amount))
 		setPropertyValue(parseInt(propertyValue));
@@ -312,11 +345,9 @@ export default function RequestForm(){
 			.catch((error) => {
 				console.log("Fallo al realizar la solicitud", error)
 			})
+		}else{
+			window.alert("Datos erroneos")
 		}
-
-			
-
-
 	}
 	
 	return (
@@ -326,7 +357,7 @@ export default function RequestForm(){
       noValidate
       autoComplete="off"
     >
-      <h3> Solicitud de prestamo</h3>
+      <h1> Solicitud de prestamo</h1>
       <br />
       <FormControl fullWidth>
         <InputLabel id="rol">Tipo de prestamo</InputLabel>
