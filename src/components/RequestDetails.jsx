@@ -43,23 +43,6 @@ const RequestDetails = () => {
       .then((response) => {
         console.log("Solicitud obtenida correctamente.", response.data);
         setRequest(response.data);
-				documentService
-					  .getByRequestId(response.data.id)
-						.then((documents)=>{
-							console.log("Documentos obtenidos", documents.data)
-							const documentsPdf = documents.data.map(document =>{
-								documentsTypes.append(document.type)
-								const byteChars =atob(document.data);
-								const byteNumbers = Array.from(byteChars, char => char.charCodeAt(0))
-								const byteArray = new Uint8Array(byteNumbers)
-								const blob = new Blob([byteArray], {type: "application/pdf"})
-								return { url : window.URL.createObjectURL(blob), type: document.type}
-							})
-							setDocuments(documentsPdf)
-							console.log(documentsPdf, documentsTypes)
-
-							
-						})
       })
       .catch((error) => {
         console.log(

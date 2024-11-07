@@ -356,6 +356,8 @@ export default function RequestForm(){
       sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}
       noValidate
       autoComplete="off"
+			alignItems={"center"}
+			textAlign={"center"}
     >
       <h1> Solicitud de prestamo</h1>
       <br />
